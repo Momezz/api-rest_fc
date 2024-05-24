@@ -1,21 +1,15 @@
 import mongoose, { Schema, model, Document } from 'mongoose';
 
 export interface FinancialItemDocument extends Document {
-  user: mongoose.Schema.Types.ObjectId,
-  isAsset: Boolean,
+  transactionType: String,
   category: String,
   description: String
   amount: Number,
 }
 
 const financialItemSchema = new Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: false
-  },
-  isAsset: {
-    type: Boolean,
+  transactionType: {
+    type: String,
     required: true
   },
   category: {
