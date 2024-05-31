@@ -10,6 +10,7 @@ export interface FinancialItemDocument extends Document {
 const financialItemSchema = new Schema({
   transactionType: {
     type: String,
+    enum: ['income', 'expense'],
     required: true
   },
   category: {
