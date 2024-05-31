@@ -4,6 +4,7 @@ export interface UserDocument extends Document {
   lastName: string;
   email: string;
   password: string;
+  categories: [object];
 }
 
 const UserSchema = new Schema({
@@ -29,6 +30,10 @@ const UserSchema = new Schema({
     required: true,
     min: 6,
   },
+  categories: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Category',
+  }]
 }, {
   timestamps: true,
   versionKey: false,

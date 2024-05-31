@@ -9,7 +9,7 @@ export async function createUser(
 
 export async function getUserByID(id: string) {
   try {
-    return await User.findById(id);
+    return (await User.findById(id)).populated("categories");
   } catch (error: any) {
     throw new Error(error);
   }
